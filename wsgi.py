@@ -4,7 +4,11 @@ application = Flask(__name__)
 
 @application.route("/")
 def hello():
-    return "Hello World! FLASK_ENV:" + os.getenv('FLASK_ENV') + "\n"
+    return "Hello World!"
+
+@application.route("/env")
+def hello():
+    return "FLASK_ENV:" + os.getenv('FLASK_ENV') + "\n"
 
 if __name__ == "__main__":
     application.run()
