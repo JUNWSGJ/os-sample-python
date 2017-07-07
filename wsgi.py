@@ -7,7 +7,7 @@ def hello():
     return "Hello World!"
 
 @application.route("/env")
-def hello():
+def get_env():
     return "FLASK_ENV:" + os.getenv('FLASK_ENV') + "\n"
 
 if __name__ == "__main__":
