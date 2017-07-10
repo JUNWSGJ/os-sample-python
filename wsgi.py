@@ -1,3 +1,4 @@
+import redis
 from flask import Flask, jsonify
 import os
 from pymongo import MongoClient
@@ -22,6 +23,14 @@ def test_mongo_add():
     users = db.users
     users.insert_one({'name':'张三', 'age':18})
     return "succcess!"
+
+@application.route("/redis")
+def test_redis():
+    r = redis.StrictRedis(host='redis', port=6379, db=0 , password='asdu98de3Bdeedsaasodjw342s')
+    r.set('foo', 'boo')
+    r.get('foo')
+    REDIS_URL = "redis://:asdu98de3Bdeedsaasodjw342s@redis:6379/0"
+    return r.get('foo')
 
 
 @application.route("/env")
