@@ -1,3 +1,4 @@
+import pymysql as pymysql
 import redis
 from flask import Flask, jsonify
 import os
@@ -28,6 +29,19 @@ def test_redis():
     r.get('foo')
     REDIS_URL = "redis://:asdu98de3Bdeedsaasodjw342s@redis:6379/0"
     return r.get('foo')
+
+@application.route("/mysql")
+def test_mysql():
+    conn = pymysql.connect(host='mysql-57-centos7-ext', port=3306, user='root', passwd='', db='mysql')
+    cur = conn.cursor()
+    cur.execute("SELECT Host,User FROM user")
+    print(cur.description)
+    for row in cur:
+        print(row)
+    cur.close()
+    conn.close()
+    return 'success'
+
 
 
 @application.route("/env")
