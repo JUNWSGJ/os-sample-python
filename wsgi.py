@@ -10,7 +10,7 @@ def hello():
 
 @application.route("/mongo/search")
 def test_mongo():
-    client = MongoClient('mongodb://goomoo:goomoo32asdyN8h@mongodb/gm')
+    client = MongoClient('mongodb://test:test@mongodb/testdb')
     db = client.goomoo
     count = db.users.find().count()
     print('count:', count)
@@ -18,7 +18,7 @@ def test_mongo():
 
 @application.route("/mongo/add")
 def test_mongo_add():
-    client = MongoClient('mongodb://goomoo:goomoo32asdyN8h@mongodb/gm')
+    client = MongoClient('mongodb://test:test@mongodb/testdb')
     db = client.goomoo
     users = db.users
     users.insert_one({'name':'张三', 'age':18})
