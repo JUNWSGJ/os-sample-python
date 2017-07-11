@@ -32,7 +32,7 @@ def test_redis():
 
 @application.route("/mysql")
 def test_mysql():
-    conn = pymysql.connect(host='mysql-57-centos7-ext', port=3306, user='root', passwd='', db='mysql')
+    conn = pymysql.connect(host='mysql-57-centos7-ext', port=3306, user='root', passwd='Goomoo!12e3j7we', db='mysql')
     cur = conn.cursor()
     cur.execute("SELECT Host,User FROM user")
     print(cur.description)
